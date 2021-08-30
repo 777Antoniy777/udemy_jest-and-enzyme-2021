@@ -1,14 +1,12 @@
 import React from 'react';
-import { App } from './App';
-import Enzyme, {shallow, ShallowWrapper} from 'enzyme';
+import { Counter } from './Counter';
+import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
 import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { getTestingElem } from '../test/testUtils';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const getWrapper = () => shallow(<App />);
-const getTestingElem = (wrapper: ShallowWrapper, attr: string) => {
-  return wrapper.find(`[data-test="${attr}"]`);
-};
+const getWrapper = () => shallow(<Counter />);
 
 let wrapper;
 let incrButton;
@@ -20,10 +18,10 @@ beforeAll(() => {
 });
 
 describe('renders all elements and component', () => {
-  it('renders App', () => {
-    const appComponent = getTestingElem(wrapper, 'component-app');
+  it('renders Counter', () => {
+    const counterComponent = getTestingElem(wrapper, 'component-counter');
 
-    expect(appComponent.length).toBe(1);
+    expect(counterComponent.length).toBe(1);
   });
 
   it('renders increment button', () => {
