@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { setTestAttributes } from '../../utils/set-test-attributes';
 
-export interface Congrats {
+export interface CongratsProps {
   status: boolean;
 }
 
-export const Congrats: FC<Congrats> = (props) => {
+export const Congrats: FC<CongratsProps> = (props) => {
   const { status } = props;
 
   return (

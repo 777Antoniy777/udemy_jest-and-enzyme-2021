@@ -17,7 +17,7 @@ beforeAll(() => {
 });
 
 describe('renders all elements and component', () => {
-  it('renders Counter', () => {
+  it('renders Counter component', () => {
     const counterComponent = getTestingElem(wrapper, 'component-counter');
 
     expect(counterComponent.length).toBe(1);

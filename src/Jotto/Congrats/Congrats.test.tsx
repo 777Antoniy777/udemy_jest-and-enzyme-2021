@@ -1,13 +1,13 @@
 import React from 'react';
-import { Congrats } from './Congrats';
+import { Congrats, CongratsProps } from './Congrats';
 import { shallow } from 'enzyme';
 import { getTestingElem } from '../../test/test-utils';
 import { setupEnzyme } from '../../test/setup-enzyme';
 
 setupEnzyme();
-const getWrapper = (props: Congrats) => shallow(<Congrats {...props} />);
+const getWrapper = (props: CongratsProps) => shallow(<Congrats {...props} />);
 
-test('renders congrats-component', () => {
+test('renders Congrats component', () => {
   const wrapper = getWrapper({ status: false });
   const congratsComponent = getTestingElem(wrapper, 'component-congrats');
 
@@ -24,10 +24,8 @@ describe('status success message', () => {
 
   test('message is showing and no empty if status prop is true', () => {
     const wrapper = getWrapper({ status: true });
-    const congratsMessage = getTestingElem(wrapper, 'congrats-message');
-    const congratsMessageText = congratsMessage.text();
+    const congratsMessageText = getTestingElem(wrapper, 'congrats-message').text();
 
-    expect(congratsMessage.length).toBe(1);
     expect(congratsMessageText.length).not.toBe(0);
   });
 });
