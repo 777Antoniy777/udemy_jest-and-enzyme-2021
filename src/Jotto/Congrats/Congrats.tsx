@@ -9,8 +9,8 @@ export const Congrats: FC<Congrats> = (props) => {
   const { status } = props;
 
   return (
-    <div {...setTestAttributes('congrats-component')}>
-      {status && <p>Good job!</p>}
+    <div {...setTestAttributes('component-congrats')}>
+      {status && <p {...setTestAttributes('congrats-message')}>Good job!</p>}
     </div>
   );
 };

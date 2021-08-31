@@ -1,25 +1,33 @@
 import React from 'react';
 import { Congrats } from './Congrats';
-import Enzyme, { shallow } from 'enzyme';
-import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { getTestingElem } from '../../test/testUtils';
+import { shallow } from 'enzyme';
+import { getTestingElem } from '../../test/test-utils';
+import { setupEnzyme } from '../../test/setup-enzyme';
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
-const mockProps: Congrats = {
-  status: false,
-};
-const getWrapper = () => shallow(<Congrats {...mockProps} />);
+setupEnzyme();
+const getWrapper = (props: Congrats) => shallow(<Congrats {...props} />);
 
 test('renders congrats-component', () => {
-  const wrapper = getWrapper();
-  const congratsComponent = getTestingElem(wrapper, 'congrats-component');
+  const wrapper = getWrapper({ status: false });
+  const congratsComponent = getTestingElem(wrapper, 'component-congrats');
 
   expect(congratsComponent.length).toBe(1);
 });
 
 describe('status success message', () => {
-  test('message is hidden if status prop os false', () => {});
+  test('message is hidden if status prop is false', () => {
+    const wrapper = getWrapper({ status: false });
+    const congratsMessage = getTestingElem(wrapper, 'congrats-message');
 
-  test('message is showing if status prop os true', () => {});
+    expect(congratsMessage.length).toBe(0);
+  });
+
+  test('message is showing and no empty if status prop is true', () => {
+    const wrapper = getWrapper({ status: true });
+    const congratsMessage = getTestingElem(wrapper, 'congrats-message');
+    const congratsMessageText = congratsMessage.text();
+
+    expect(congratsMessage.length).toBe(1);
+    expect(congratsMessageText.length).not.toBe(0);
+  });
 });

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve",
-    "test": "jest --watch"
+    "test": "jest src/Jotto/* --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

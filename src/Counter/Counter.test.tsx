@@ -1,11 +1,10 @@
 import React from 'react';
 import { Counter } from './Counter';
-import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
-import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { getTestingElem } from '../test/testUtils';
+import { shallow } from 'enzyme';
+import { getTestingElem } from '../test/test-utils';
+import { setupEnzyme } from '../test/setup-enzyme';
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
+setupEnzyme();
 const getWrapper = () => shallow(<Counter />);
 
 let wrapper;
