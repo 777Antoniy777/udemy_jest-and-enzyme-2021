@@ -4,7 +4,9 @@ import { GuessedWords } from './GuessedWords/GuessedWords';
 
 export const Jotto = () => {
   return (
-    <div className="counter">
+    <div className="jotto">
+      <h1>Jotto</h1>
+
       <Congrats status={false} />
 
       <GuessedWords guessedWords={[

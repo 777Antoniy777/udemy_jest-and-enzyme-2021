@@ -1,10 +1,11 @@
 import React from 'react';
 import { Counter } from '../Counter/Counter';
 import { Jotto } from '../Jotto/Jotto';
+import './App.scss';
 
 export const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       {/*Модуль 1*/}
       <Counter />
 

@@ -1,0 +1,25 @@
+.guessed-words {
+  &__table {
+    width: 400px;
+    border-collapse: collapse;
+
+    tr {
+      width: 100%;
+    }
+
+    th,
+    td {
+      width: 50%;
+      text-align: center;
+      border: 1px solid black;
+    }
+
+    th {
+      background-color: bisque;
+    }
+
+    td {
+      background-color: #caf79e;
+    }
+  }
+}
